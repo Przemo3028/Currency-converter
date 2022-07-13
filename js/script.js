@@ -6,11 +6,7 @@ let markElement = document.querySelector(".js-mark");
 
 formElement.addEventListener("click", () => {
     resultElement.innerText = "N/A"
-    if (sumPoundElement.checked === true) {
-        markElement.innerText = "£"
-    } else {
-        markElement.innerText = "€"
-    }
+    markElement.innerText = sumPoundElement.checked === true ? "£" : "€";
 });
 
 formElement.addEventListener("submit", (event) => {
@@ -18,12 +14,10 @@ formElement.addEventListener("submit", (event) => {
 
     let field = fieldElement.value;
     let result = resultElement.value;
+    let euroCurrency = 4.76;
+    let poundCurrency = 5.63;
 
-    if (sumPoundElement.checked === true) {
-        result = field * 1 / 5.63;
-    } else {
-        result = field * 1 / 4.76
-    }
+    result = sumPoundElement.checked === true ? field * 1 / poundCurrency : field * 1 / euroCurrency;
     resultElement.innerText = result.toFixed(2);
 });
 
