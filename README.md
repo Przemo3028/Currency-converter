@@ -1,7 +1,12 @@
-# Currency---converter
+# Currency - converter
 
-## Opis
-Prosty kalkulator do przeliczania waluty PLN na euro i funt szterling
+## Description
+>Simple tool which allows to convert PLN to Euro and Pounds.
+>It is part of my JavaScript course.
+>Enjoy! :)
+
+## Preview
+![animated gif](https://github.com/Przemo3028/Currency---converter/blob/main/images/animatedGIF.gif?raw=true)
 
 ## Demo
 https://przemo3028.github.io/Currency---converter/
