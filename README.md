@@ -1,7 +1,7 @@
 # Currency - converter
 
 ## Description
->Simple tool which allows to convert PLN to Euro and Pounds.
+>Simple tool which allows to convert PLN to EUR and GBP.
 >It is part of my JavaScript course.
 >Enjoy! :)
 
