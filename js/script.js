@@ -7,7 +7,7 @@
         markElement.innerText = sumPoundElement.checked === true ? "£" : "€";
     }
 
-    const calculateElement = () => {
+    const calculateResult = () => {
         const fieldElement = document.querySelector(".js-form__field");
         const resultElement = document.querySelector(".js-result");
         const sumPoundElement = document.querySelector(".js-form__pound");
@@ -15,18 +15,18 @@
         let result = resultElement.value;
         const euroCurrency = 4.7480;
         const poundCurrency = 5.5981;
-        result = sumPoundElement.checked === true ? field * 1 / poundCurrency : field * 1 / euroCurrency;
+        result = sumPoundElement.checked === true ? field / poundCurrency : field / euroCurrency;
         resultElement.innerText = result.toFixed(2);
     }
 
     const onFormSubmit = (event) => {
         event.preventDefault();
+        calculateResult();
     }
 
     const init = () => {
         const formElement = document.querySelector(".js-form");
         formElement.addEventListener("submit", onFormSubmit);
-        formElement.addEventListener("submit", calculateElement);
         formElement.addEventListener("click", currencyToggle);
     }
 
