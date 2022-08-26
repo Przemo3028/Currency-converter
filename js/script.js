@@ -1,33 +1,39 @@
 {
-    const currencyToggle = () => {
+    const currencyToggle = (resultElement, sumPoundElement) => {
         const markElement = document.querySelector(".js-mark");
-        const resultElement = document.querySelector(".js-result");
-        const sumPoundElement = document.querySelector(".js-form__pound");
         resultElement.innerText = "N/A"
         markElement.innerText = sumPoundElement.checked === true ? "£" : "€";
     }
 
-    const calculateResult = () => {
+    const updateResult = (resultElement, result) => {
+        resultElement.innerText = result.toFixed(2);
+    }
+
+    const calculateResult = (resultElement, sumPoundElement) => {
         const fieldElement = document.querySelector(".js-form__field");
-        const resultElement = document.querySelector(".js-result");
-        const sumPoundElement = document.querySelector(".js-form__pound");
         const field = fieldElement.value;
         let result = resultElement.value;
         const euroCurrency = 4.7480;
         const poundCurrency = 5.5981;
         result = sumPoundElement.checked === true ? field / poundCurrency : field / euroCurrency;
-        resultElement.innerText = result.toFixed(2);
+        updateResult (resultElement, result);
     }
 
-    const onFormSubmit = (event) => {
+    const onFormSubmit = (event, resultElement, sumPoundElement) => {
         event.preventDefault();
-        calculateResult();
+        calculateResult(resultElement, sumPoundElement);
     }
 
     const init = () => {
         const formElement = document.querySelector(".js-form");
-        formElement.addEventListener("submit", onFormSubmit);
-        formElement.addEventListener("click", currencyToggle);
+        const resultElement = document.querySelector(".js-result");
+        const sumPoundElement = document.querySelector(".js-form__pound");
+        formElement.addEventListener("submit", (event) => {
+            onFormSubmit(event, resultElement, sumPoundElement);
+        });
+        formElement.addEventListener("click", () => {
+            currencyToggle(resultElement, sumPoundElement)
+        });
     }
 
     init();
